@@ -1,0 +1,41 @@
+cell_condition = { "fully_revealed" "random_revealed" }
+symbol = @{ ASCII_ALPHA+ }
+number = @{ ASCII_DIGIT+ }
+
+drc = { "left" | "right" | "up" | "down" } // direction
+horz = { "horz" } // horizontal
+vert = { "vert" } // vertical
+orth = { "orth" } // orthogonal
+diag = { "diag" } // diagonal
+ordi = { "ordi" } // orthogonal and diagonal
+row = { "row" } // row
+col = { "col" } // column
+pdg = { "pdg" } // positive diagonal
+ndg = { "ndg" } // negative diagonal
+region = { "region"}
+area = { "area" }
+stripe = { "stripe" }
+
+union
+intersection
+subtract
+
+sqr = { "sqr" }
+left = { "left" }
+right = { "right" }
+up = { "up" }
+down = { "down" }
+// horz = { up union down }
+
+verb = { }
+pr = !{ "(" ~ rule ~ ")" } // param(rule)
+prn = !{ "(" ~ rule ~ "," ~ ASCII_DIGIT+ ~ ")" } // param(rule, n)
+adj_ex = @{ "adj_ex" ~ pr } // adjacency exist
+adj_cnt = @{ "adj_cnt" ~ pr } // adjacency count
+adj_nex = @{ "adj_nex" ~ prn } // adjacency n exist
+adj_pair = @{ "adj_pair" ~ prn } // adjacency count
+orth_cont = @{ "orth_cont" ~ pr } // orthogonally contiguous cells count
+diag_cont = @{ "orth_cont" ~ pr } // diagonally contiguous cells count
+ordi_cont = @{ "orth_cont" ~ pr } // orthogonally and diagonally contiguous cells count
+// congruence = {}
+// graph_search = {}
